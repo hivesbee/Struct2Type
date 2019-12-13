@@ -1,26 +1,68 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.css'
+import gopher from './gopher.svg'
+import transpile from './transpiler'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      structText: '',
+      typeText: ''
+    }
+
+    this.handleStructTextChange = this.handleStructTextChange.bind(this)
+    this.handleTranspileClick = this.handleTranspileClick.bind(this)
+  }
+
+  handleStructTextChange (event) {
+    const typeLines = transpile(event.target.value)
+    this.setState({
+      structText: event.target.value
+    })
+
+    this.setState({
+      typeText: typeLines
+    })
+  }
+
+  handleTranspileClick (event) {
+    console.log('handleTranspileClick')
+    const typeLines = transpile(this.state.structText)
+
+    this.setState({
+      typeText: typeLines
+    })
+  }
+
+  render () {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <h1>Struct 2 Type</h1>
+        </header>
+        <main className="App-main">
+          <textarea
+            className="App-textarea-struct"
+            placeholder="こちらに golang の struct をコピペしてください"
+            wrap="off"
+            value={this.state.structText}
+            onChange={this.handleStructTextChange}
+          />
+          <span className="App-arrow-right">👉</span>
+          <textarea
+            className="App-textarea-type"
+            placeholder="こちらに TypeScript の型定義がでてきます"
+            wrap="off"
+            readOnly
+            value={this.state.typeText}
+          />
+        </main>
+        <img src={gopher} className="App-gopher" />
+      </div>
+    )
+  }
 }
 
 export default App;
