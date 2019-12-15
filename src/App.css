@@ -26,8 +26,8 @@
 
 .App-textarea-struct,
 .App-textarea-type {
-  min-width: calc(1rem * 40);
-  min-height: calc(1rem * 40);
+  min-width: calc(1rem * 32);
+  min-height: calc(1rem * 32);
   padding: 1rem;
   font-family: Menlo, monospace;
   font-size: 1rem;
