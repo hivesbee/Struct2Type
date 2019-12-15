@@ -60,6 +60,10 @@ class App extends React.Component {
           />
         </main>
         <img src={gopher} className="App-gopher" />
+        <p className="App-copyright">
+        gopher.svg was created by <a href="https://twitter.com/tenntenn">>Takuya Ueda</a>.<br />
+        The Go gopher was designed by <a href="http://reneefrench.blogspot.com/">Renee French</a>.
+        </p>
       </div>
     )
   }
