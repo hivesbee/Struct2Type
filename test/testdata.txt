@@ -1,0 +1,6 @@
+type Test struct {
+  Id         Hoge.Fuga  'json:"id"'
+  Name       string     'json:"name"'
+  CreatedAt  *time.Time 'json:"createdAt"'
+  Status     string
+}

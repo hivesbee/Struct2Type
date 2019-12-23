@@ -1,0 +1,119 @@
+     0  *ast.File {
+     1  .  Package: 4
+     2  .  Name: *ast.Ident {
+     3  .  .  NamePos: 12
+     4  .  .  Name: "Sample"
+     5  .  }
+     6  .  Decls: []ast.Decl (len = 1) {
+     7  .  .  0: *ast.GenDecl {
+     8  .  .  .  TokPos: 22
+     9  .  .  .  Tok: type
+    10  .  .  .  Lparen: 0
+    11  .  .  .  Specs: []ast.Spec (len = 1) {
+    12  .  .  .  .  0: *ast.TypeSpec {
+    13  .  .  .  .  .  Name: *ast.Ident {
+    14  .  .  .  .  .  .  NamePos: 27
+    15  .  .  .  .  .  .  Name: "Test"
+    16  .  .  .  .  .  .  Obj: *ast.Object {
+    17  .  .  .  .  .  .  .  Kind: type
+    18  .  .  .  .  .  .  .  Name: "Test"
+    19  .  .  .  .  .  .  .  Decl: *(obj @ 12)
+    20  .  .  .  .  .  .  }
+    21  .  .  .  .  .  }
+    22  .  .  .  .  .  Assign: 0
+    23  .  .  .  .  .  Type: *ast.StructType {
+    24  .  .  .  .  .  .  Struct: 32
+    25  .  .  .  .  .  .  Fields: *ast.FieldList {
+    26  .  .  .  .  .  .  .  Opening: 39
+    27  .  .  .  .  .  .  .  List: []*ast.Field (len = 3) {
+    28  .  .  .  .  .  .  .  .  0: *ast.Field {
+    29  .  .  .  .  .  .  .  .  .  Names: []*ast.Ident (len = 1) {
+    30  .  .  .  .  .  .  .  .  .  .  0: *ast.Ident {
+    31  .  .  .  .  .  .  .  .  .  .  .  NamePos: 44
+    32  .  .  .  .  .  .  .  .  .  .  .  Name: "Id"
+    33  .  .  .  .  .  .  .  .  .  .  .  Obj: *ast.Object {
+    34  .  .  .  .  .  .  .  .  .  .  .  .  Kind: var
+    35  .  .  .  .  .  .  .  .  .  .  .  .  Name: "Id"
+    36  .  .  .  .  .  .  .  .  .  .  .  .  Decl: *(obj @ 28)
+    37  .  .  .  .  .  .  .  .  .  .  .  }
+    38  .  .  .  .  .  .  .  .  .  .  }
+    39  .  .  .  .  .  .  .  .  .  }
+    40  .  .  .  .  .  .  .  .  .  Type: *ast.Ident {
+    41  .  .  .  .  .  .  .  .  .  .  NamePos: 54
+    42  .  .  .  .  .  .  .  .  .  .  Name: "string"
+    43  .  .  .  .  .  .  .  .  .  }
+    44  .  .  .  .  .  .  .  .  .  Tag: *ast.BasicLit {
+    45  .  .  .  .  .  .  .  .  .  .  ValuePos: 65
+    46  .  .  .  .  .  .  .  .  .  .  Kind: STRING
+    47  .  .  .  .  .  .  .  .  .  .  Value: "`json:\"id\"`"
+    48  .  .  .  .  .  .  .  .  .  }
+    49  .  .  .  .  .  .  .  .  }
+    50  .  .  .  .  .  .  .  .  1: *ast.Field {
+    51  .  .  .  .  .  .  .  .  .  Names: []*ast.Ident (len = 1) {
+    52  .  .  .  .  .  .  .  .  .  .  0: *ast.Ident {
+    53  .  .  .  .  .  .  .  .  .  .  .  NamePos: 80
+    54  .  .  .  .  .  .  .  .  .  .  .  Name: "Name"
+    55  .  .  .  .  .  .  .  .  .  .  .  Obj: *ast.Object {
+    56  .  .  .  .  .  .  .  .  .  .  .  .  Kind: var
+    57  .  .  .  .  .  .  .  .  .  .  .  .  Name: "Name"
+    58  .  .  .  .  .  .  .  .  .  .  .  .  Decl: *(obj @ 50)
+    59  .  .  .  .  .  .  .  .  .  .  .  }
+    60  .  .  .  .  .  .  .  .  .  .  }
+    61  .  .  .  .  .  .  .  .  .  }
+    62  .  .  .  .  .  .  .  .  .  Type: *ast.Ident {
+    63  .  .  .  .  .  .  .  .  .  .  NamePos: 90
+    64  .  .  .  .  .  .  .  .  .  .  Name: "string"
+    65  .  .  .  .  .  .  .  .  .  }
+    66  .  .  .  .  .  .  .  .  .  Tag: *ast.BasicLit {
+    67  .  .  .  .  .  .  .  .  .  .  ValuePos: 101
+    68  .  .  .  .  .  .  .  .  .  .  Kind: STRING
+    69  .  .  .  .  .  .  .  .  .  .  Value: "`json:\"name\"`"
+    70  .  .  .  .  .  .  .  .  .  }
+    71  .  .  .  .  .  .  .  .  }
+    72  .  .  .  .  .  .  .  .  2: *ast.Field {
+    73  .  .  .  .  .  .  .  .  .  Names: []*ast.Ident (len = 1) {
+    74  .  .  .  .  .  .  .  .  .  .  0: *ast.Ident {
+    75  .  .  .  .  .  .  .  .  .  .  .  NamePos: 118
+    76  .  .  .  .  .  .  .  .  .  .  .  Name: "CreatedAt"
+    77  .  .  .  .  .  .  .  .  .  .  .  Obj: *ast.Object {
+    78  .  .  .  .  .  .  .  .  .  .  .  .  Kind: var
+    79  .  .  .  .  .  .  .  .  .  .  .  .  Name: "CreatedAt"
+    80  .  .  .  .  .  .  .  .  .  .  .  .  Decl: *(obj @ 72)
+    81  .  .  .  .  .  .  .  .  .  .  .  }
+    82  .  .  .  .  .  .  .  .  .  .  }
+    83  .  .  .  .  .  .  .  .  .  }
+    84  .  .  .  .  .  .  .  .  .  Type: *ast.StarExpr {
+    85  .  .  .  .  .  .  .  .  .  .  Star: 128
+    86  .  .  .  .  .  .  .  .  .  .  X: *ast.SelectorExpr {
+    87  .  .  .  .  .  .  .  .  .  .  .  X: *ast.Ident {
+    88  .  .  .  .  .  .  .  .  .  .  .  .  NamePos: 129
+    89  .  .  .  .  .  .  .  .  .  .  .  .  Name: "time"
+    90  .  .  .  .  .  .  .  .  .  .  .  }
+    91  .  .  .  .  .  .  .  .  .  .  .  Sel: *ast.Ident {
+    92  .  .  .  .  .  .  .  .  .  .  .  .  NamePos: 134
+    93  .  .  .  .  .  .  .  .  .  .  .  .  Name: "Time"
+    94  .  .  .  .  .  .  .  .  .  .  .  }
+    95  .  .  .  .  .  .  .  .  .  .  }
+    96  .  .  .  .  .  .  .  .  .  }
+    97  .  .  .  .  .  .  .  .  }
+    98  .  .  .  .  .  .  .  }
+    99  .  .  .  .  .  .  .  Closing: 141
+   100  .  .  .  .  .  .  }
+   101  .  .  .  .  .  .  Incomplete: false
+   102  .  .  .  .  .  }
+   103  .  .  .  .  }
+   104  .  .  .  }
+   105  .  .  .  Rparen: 0
+   106  .  .  }
+   107  .  }
+   108  .  Scope: *ast.Scope {
+   109  .  .  Objects: map[string]*ast.Object (len = 1) {
+   110  .  .  .  "Test": *(obj @ 16)
+   111  .  .  }
+   112  .  }
+   113  .  Unresolved: []*ast.Ident (len = 3) {
+   114  .  .  0: *(obj @ 40)
+   115  .  .  1: *(obj @ 62)
+   116  .  .  2: *(obj @ 87)
+   117  .  }
+   118  }
