@@ -21,6 +21,14 @@ class App extends React.Component {
       structText: event.target.value
     })
 
+    if (event.target.value === '') {
+      this.setState({
+        typeText: ''
+      })
+
+      return
+    }
+
     const astString = parseStruct(event.target.value) // eslint-disable-line no-undef
     const typeLines = generate(JSON.parse(astString))
 
