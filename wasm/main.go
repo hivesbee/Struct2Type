@@ -63,14 +63,23 @@ func extractField(field *ast.Field) (TypeField, bool) {
 	}
 
 	// fieldName
+	if len(field.Names) == 0 || field.Names[0].Name == "" {
+		return TypeField{}, false
+	}
 	fieldName := field.Names[0].Name
 
 	// fieldType
+	if field.Type == nil {
+		return TypeField{}, false
+	}
 	var b bytes.Buffer
 	format.Node(&b, token.NewFileSet(), field.Type)
 	fieldType := b.String()
 
 	// fieldTag
+	if field.Tag == nil {
+		return TypeField{}, false
+	}
 	var bb bytes.Buffer
 	format.Node(&bb, token.NewFileSet(), field.Tag)
 	fieldTag := bb.String()
