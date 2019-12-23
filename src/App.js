@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.css'
 import gopher from './gopher.svg'
-import transpile from './transpiler'
+import { generate } from './generator'
 
 class App extends React.Component {
   constructor (props) {
@@ -16,11 +16,13 @@ class App extends React.Component {
     this.handleTranspileClick = this.handleTranspileClick.bind(this)
   }
 
-  handleStructTextChange (event) {
-    const typeLines = transpile(event.target.value)
+  async handleStructTextChange (event) {
     this.setState({
       structText: event.target.value
     })
+
+    const astString = parseStruct(event.target.value) // eslint-disable-line no-undef
+    const typeLines = generate(JSON.parse(astString))
 
     this.setState({
       typeText: typeLines
@@ -28,12 +30,6 @@ class App extends React.Component {
   }
 
   handleTranspileClick (event) {
-    console.log('handleTranspileClick')
-    const typeLines = transpile(this.state.structText)
-
-    this.setState({
-      typeText: typeLines
-    })
   }
 
   render () {
