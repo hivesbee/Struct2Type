@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "npm run build:wasm && npm run build:react",
+    "build": "npm run build:react",
     "build:react": "react-scripts build",
     "build:wasm": "bash ./wasm/build.sh",
     "test": "react-scripts test",
