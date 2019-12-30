@@ -25,6 +25,7 @@ jobs:
     - name: Get dependencies
       run: |
         go get -v -t -d ./...
+        get -u https://github.com/golang/go/tree/master/src/syscall/js
         if [ -f Gopkg.toml ]; then
             curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
             dep ensure
