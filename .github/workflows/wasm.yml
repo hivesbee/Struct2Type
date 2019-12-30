@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-      - feature/5
 
 jobs:
 
@@ -24,7 +23,6 @@ jobs:
 
     - name: Get dependencies
       run: |
-        # GOOS=js GOARCH=wasm go get -u syscall/js
         GOOS=js GOARCH=wasm go get -v -t -d ./...
         if [ -f Gopkg.toml ]; then
             curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
@@ -36,5 +34,3 @@ jobs:
         cd wasm
         GOOS=js GOARCH=wasm go build -o main.wasm
         cp -pr main.wasm ../public
-        cd ../public
-        ls
