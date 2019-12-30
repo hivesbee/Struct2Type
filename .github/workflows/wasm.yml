@@ -24,8 +24,8 @@ jobs:
 
     - name: Get dependencies
       run: |
-        GOOS=js GOARCH=wasm go get -u syscall/js
-        go get -v -t -d ./...
+        # GOOS=js GOARCH=wasm go get -u syscall/js
+        GOOS=js GOARCH=wasm go get -v -t -d ./...
         if [ -f Gopkg.toml ]; then
             curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
             dep ensure
