@@ -35,3 +35,5 @@ jobs:
       run: |
         cd wasm
         GOOS=js GOARCH=wasm go build -o main.wasm
+        cd ../public
+        ls
