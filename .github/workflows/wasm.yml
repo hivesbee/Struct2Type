@@ -1,4 +1,4 @@
-name: Go wasm
+name: Go_wasm
 
 on:
   push:
