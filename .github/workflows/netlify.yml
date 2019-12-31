@@ -13,8 +13,9 @@ jobs:
     steps:
     - uses: actions/checkout@master
 
+    - uses: netlify/actions/cli@master
+
     - name: deploy production
-      uses: netlify/actions/cli@master
       run: |
         echo ${test}
         netlify deploy --prod -d build -a ${netlify_auth_token} -s ${netlify_site_id}
