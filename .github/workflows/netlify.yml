@@ -1,0 +1,22 @@
+name: Netlify
+
+on:
+  push:
+    branches:
+      - master
+      - feature/5
+
+jobs:
+  build:
+    name: Deploy netlify
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+
+    - name: deploy production
+      uses: actions/cli@master
+      with:
+        args: deploy --prod -d build -a netlify_aut_token -s netlify_site_id
+      env:
+        netlify_aut_token: ${{ secrets.NetlifyAuthToken }}
+        netlify_site_id: ${{ secrets.NetlifySiteId }}
