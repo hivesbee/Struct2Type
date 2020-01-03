@@ -4,11 +4,10 @@ on:
   push:
     branches:
       - master
-      - feature/5
 
 jobs:
   build:
-    name: Deploy netlify
+    name: Deploy to Netlify
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
