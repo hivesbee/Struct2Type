@@ -26,6 +26,7 @@ jobs:
         npm ci
         npm run build --if-present
         # npm test
+        echo ${GITHUB_WORKSPACE}
         pwd
         ls -la
       env:
@@ -38,6 +39,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@master
+
+    - name: check directory
+      run: |
+        echo ${GITHUB_WORKSPACE}
+        pwd
+        ls -la
 
     - name: deploy production
       uses: netlify/actions/cli@master
