@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - feature/10
 
 jobs:
   build_wasm:
@@ -32,7 +33,6 @@ jobs:
         run: |
           cd wasm
           GOOS=js GOARCH=wasm go build -o main.wasm
-          cp -pr main.wasm ../public
 
       - name: Upload WASM file
         uses: actions/upload-artifact@v1
@@ -70,9 +70,6 @@ jobs:
           npm ci
           npm run build --if-present
           # npm test
-          echo ${GITHUB_WORKSPACE}
-          pwd
-          ls -la
         env:
           CI: false
 
@@ -95,15 +92,15 @@ jobs:
         with:
           name: build
 
-      - name: check directory
+      - name: Check directory
         run: |
           echo ${GITHUB_WORKSPACE}
           pwd
           ls -la
-          echo build dir
-          ls ./build
+          echo build dir:
+          ls -la ./build
 
-      - name: deploy production
+      - name: Deploy
         uses: netlify/actions/cli@master
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NetlifyAuthToken }}
