@@ -32,6 +32,7 @@ jobs:
   deploy_to_netlify:
     name: Deploy to Netlify
     runs-on: ubuntu-latest
+    needs: build_react_app
 
     steps:
     - uses: actions/checkout@master
