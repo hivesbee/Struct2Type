@@ -38,7 +38,7 @@ jobs:
     needs: build_react_app
 
     steps:
-    - uses: actions/checkout@master
+    # - uses: actions/checkout@master
 
     - name: check directory
       run: |
