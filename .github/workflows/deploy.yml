@@ -1,0 +1,45 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+      - feature/5
+
+jobs:
+  build_react_app:
+    name: Build React App
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: npm install, build, and test
+      run: |
+        npm ci
+        npm run build --if-present
+        # npm test
+      env:
+        CI: false
+
+  deploy_to_netlify:
+    name: Deploy to Netlify
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@master
+
+    - name: deploy production
+      uses: netlify/actions/cli@master
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NetlifyAuthToken }}
+        NETLIFY_SITE_ID: ${{ secrets.NetlifySiteId }}
+      with:
+        args: 'deploy -p -d ./build'
