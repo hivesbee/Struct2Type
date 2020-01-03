@@ -35,6 +35,12 @@ jobs:
           GOOS=js GOARCH=wasm go build -o main.wasm
           cp -pr main.wasm ../public
 
+      - name: Upload WASM file
+        uses: actions/upload-artifact@v1
+        with:
+          name: main.wasm
+          path: ./wasm/main.wasm
+
 
   build_react_app:
     name: Build React App
