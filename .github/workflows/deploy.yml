@@ -16,21 +16,29 @@ jobs:
         node-version: [12.x]
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: npm install, build, and test
-      run: |
-        npm ci
-        npm run build --if-present
-        # npm test
-        echo ${GITHUB_WORKSPACE}
-        pwd
-        ls -la
-      env:
-        CI: false
+      - uses: actions/checkout@v1
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: npm install, build, and test
+        run: |
+          npm ci
+          npm run build --if-present
+          # npm test
+          echo ${GITHUB_WORKSPACE}
+          pwd
+          ls -la
+        env:
+          CI: false
+
+      - name: Upload build directory
+        uses: actions/upload-artifact@v1
+        with:
+          name: build
+          path: build
 
   deploy_to_netlify:
     name: Deploy to Netlify
@@ -38,18 +46,23 @@ jobs:
     needs: build_react_app
 
     steps:
-    # - uses: actions/checkout@master
+      # - uses: actions/checkout@master
 
-    - name: check directory
-      run: |
-        echo ${GITHUB_WORKSPACE}
-        pwd
-        ls -la
+      - name: Download build directory
+        uses: actions/download-artifact@v1
+        with:
+          name: build
 
-    - name: deploy production
-      uses: netlify/actions/cli@master
-      env:
-        NETLIFY_AUTH_TOKEN: ${{ secrets.NetlifyAuthToken }}
-        NETLIFY_SITE_ID: ${{ secrets.NetlifySiteId }}
-      with:
-        args: 'deploy -p -d ./build'
+      - name: check directory
+        run: |
+          echo ${GITHUB_WORKSPACE}
+          pwd
+          ls -la
+
+      - name: deploy production
+        uses: netlify/actions/cli@master
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NetlifyAuthToken }}
+          NETLIFY_SITE_ID: ${{ secrets.NetlifySiteId }}
+        with:
+          args: 'deploy -p -d ./build'
