@@ -19,4 +19,4 @@ jobs:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NetlifyAuthToken }}
         NETLIFY_SITE_ID: ${{ secrets.NetlifySiteId }}
       with:
-        args: 'deploy -p -d ${GITHUB_WORKSPACE}/build'
+        args: 'deploy -p -d ./build'
