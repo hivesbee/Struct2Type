@@ -99,7 +99,6 @@ jobs:
           ls -la
           echo build dir:
           ls -la ./build
-          
 
       - name: Deploy
         uses: netlify/actions/cli@master
@@ -107,4 +106,4 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NetlifyAuthToken }}
           NETLIFY_SITE_ID: ${{ secrets.NetlifySiteId }}
         with:
-          args: deploy -p -d ./build --json
+          args: deploy -p -o -d ./build
