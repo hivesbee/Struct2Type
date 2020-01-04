@@ -1,4 +1,2 @@
-[[headers]]
-for = "/main.wasm"
-[headers.values]
-Content-Type = "application/wasm"
+/main.wasm
+  Content-Type: application/wasm
