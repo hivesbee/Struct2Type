@@ -99,6 +99,7 @@ jobs:
           ls -la
           echo build dir:
           ls -la ./build
+          
 
       - name: Deploy
         uses: netlify/actions/cli@master
