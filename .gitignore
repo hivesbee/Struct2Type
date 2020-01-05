@@ -23,5 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 node_modules
 
-# sawm
+# wasm
 /wasm/main.wasm
+/public/main.wasm
