@@ -1,5 +1,0 @@
-[[headers]]
-for = "/main.wasm"
-[headers.values]
-Content-Type = "application/wasm"
-Accept-Ranges = "bytes"

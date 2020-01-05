@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-      - feature/10
 
 jobs:
   build_wasm:
@@ -85,20 +84,10 @@ jobs:
     needs: build_react_app
 
     steps:
-      # - uses: actions/checkout@master
-
       - name: Download build directory
         uses: actions/download-artifact@v1
         with:
           name: build
-
-      - name: Check directory
-        run: |
-          echo ${GITHUB_WORKSPACE}
-          pwd
-          ls -la
-          echo build dir:
-          ls -la ./build
 
       - name: Deploy
         uses: netlify/actions/cli@master
@@ -107,4 +96,3 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.NetlifySiteId }}
         with:
           args: deploy -p -d ./build
-
