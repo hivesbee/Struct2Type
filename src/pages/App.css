@@ -1,0 +1,36 @@
+.App {
+  min-height: 100vh;
+  text-align: center;
+  background-color: #282c34;
+}
+
+.App-main {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  min-width: 100vw;
+
+  z-index: 1;
+}
+
+.App-textarea-golang,
+.App-textarea-ts {
+  min-width: calc(1rem * 32);
+  min-height: calc(1rem * 32);
+  padding: 1rem;
+  font-family: Menlo, monospace;
+  font-size: 1rem;
+  line-height: 1.5;
+
+  text-overflow: auto;
+
+  background: #f7f9fa;
+  border-radius: 0.3125rem;
+}
+
+.App-arrow-right {
+  margin: 0 1rem;
+  font-size: 1rem;
+}
