@@ -9,21 +9,18 @@ class App extends React.Component {
 
     this.state = {
       structText: '',
-      typeText: ''
+      tsText: ''
     }
-
-    this.handleStructTextChange = this.handleStructTextChange.bind(this)
-    this.handleTranspileClick = this.handleTranspileClick.bind(this)
   }
 
-  async handleStructTextChange (event) {
+  handleStructTextChange = (event) => {
     this.setState({
       structText: event.target.value
     })
 
     if (event.target.value === '') {
       this.setState({
-        typeText: ''
+        tsText: ''
       })
 
       return
@@ -35,9 +32,6 @@ class App extends React.Component {
     this.setState({
       typeText: typeLines
     })
-  }
-
-  handleTranspileClick (event) {
   }
 
   render () {
@@ -54,16 +48,16 @@ class App extends React.Component {
             value={this.state.structText}
             onChange={this.handleStructTextChange}
           />
-          <span className="App-arrow-right">👉</span>
+          <span className="App-arrow-right" role="img" aria-label="left arrow">👉</span>
           <textarea
             className="App-textarea-type"
             placeholder="こちらに TypeScript の型定義がでてきます"
             wrap="off"
             readOnly
-            value={this.state.typeText}
+            value={this.state.tsText}
           />
         </main>
-        <img src={gopher} className="App-gopher" />
+        <img src={gopher} className="App-gopher" alt="gopher" />
         <p className="App-copyright">
         gopher.svg was created by <a href="https://twitter.com/tenntenn">>Takuya Ueda</a>.<br />
         The Go gopher was designed by <a href="http://reneefrench.blogspot.com/">Renee French</a>.
