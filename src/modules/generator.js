@@ -6,10 +6,7 @@ const typeSwitchMap = {
 
 const switchTypeName = (type) => typeSwitchMap[type] || type
 
-
 const generate = (json) => {
-  const lines = []
-
   // type 定義
   const head = `type ${json.name} = {`
 

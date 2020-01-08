@@ -1,0 +1,28 @@
+.BgLogo-gopher {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 30rem;
+  height: 15rem;
+  object-fit: cover;
+  object-position: 0% 0%;
+
+  opacity: 0.05;
+}
+
+.BgLogo-copyright {
+  position: absolute;
+  left: 30rem;
+  bottom: 0;
+  text-align: left;
+  color: #000000;
+  font-weight: bold;
+  opacity: 0.1;
+}
+
+.BgLogo-copyright a:link,
+.BgLogo-copyright a:visited,
+.BgLogo-copyright a:hover,
+.BgLogo-copyright a:active {
+  color: #000000;
+}
