@@ -67,7 +67,7 @@ jobs:
         run: |
           cp -pr ./wasm/main.wasm ./front/public
           cd front
-          yarn ci
+          yarn install
           yarn run export --if-present
           # npm test
         env:
