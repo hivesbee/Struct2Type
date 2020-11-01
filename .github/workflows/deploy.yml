@@ -52,8 +52,6 @@ jobs:
     steps:
       - name: Checkout master branch
         uses: actions/checkout@v1
-        with:
-          ref: feature/15
 
       - name: Download WASM file
         uses: actions/download-artifact@v1
