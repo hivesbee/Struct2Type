@@ -1,0 +1,7 @@
+
+# build
+main.wasm
+
+# misc
+.DS_Store
+*.pem
