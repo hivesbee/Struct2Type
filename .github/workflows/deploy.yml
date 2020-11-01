@@ -47,7 +47,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version: [14.x]
 
     steps:
       - name: Checkout master branch
@@ -65,7 +65,8 @@ jobs:
 
       - name: npm install, build, and test
         run: |
-          cp -pr ./wasm/main.wasm ./public
+          cp -pr ./wasm/main.wasm ./front/public
+          cd front
           npm ci
           npm run build --if-present
           # npm test
@@ -95,4 +96,4 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NetlifyAuthToken }}
           NETLIFY_SITE_ID: ${{ secrets.NetlifySiteId }}
         with:
-          args: deploy -p -d ./build
+          args: deploy -p -d ./front/out
