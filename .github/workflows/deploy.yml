@@ -50,6 +50,12 @@ jobs:
         node-version: [14.x]
 
     steps:
+      - name: Set cache
+        uses: actions/cache@v2
+        with:
+          path: ${{ github.workspace }}/front/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}
+
       - name: Checkout master branch
         uses: actions/checkout@v1
 
